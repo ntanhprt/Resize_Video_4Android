@@ -8,7 +8,6 @@ composeBom = "2024.06.00"
 navigationCompose = "2.7.7"
 media3 = "1.3.1"
 workManager = "2.9.0"
-ffmpegKit = "6.0-2"
 coroutines = "1.8.0"
 kotlinxSerialization = "1.7.1"
 junit = "4.13.2"
@@ -32,7 +31,6 @@ navigation-compose = { group = "androidx.navigation", name = "navigation-compose
 media3-exoplayer = { group = "androidx.media3", name = "media3-exoplayer", version.ref = "media3" }
 media3-ui = { group = "androidx.media3", name = "media3-ui", version.ref = "media3" }
 work-runtime-ktx = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "workManager" }
-ffmpeg-kit-android = { group = "com.arthenica", name = "ffmpeg-kit-android", version.ref = "ffmpegKit" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }

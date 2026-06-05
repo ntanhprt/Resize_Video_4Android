@@ -5,7 +5,6 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
-import androidx.work.getWorkInfoByIdFlow
 import com.ntanhprt.videoresizer.work.VideoCompressionWork
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
