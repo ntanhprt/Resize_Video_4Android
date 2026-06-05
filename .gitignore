@@ -9,3 +9,7 @@ captures/
 .cxx/
 *.apk
 *.aab
+*.jks
+*.keystore
+.superpowers/
+/app/src/main/gen/
