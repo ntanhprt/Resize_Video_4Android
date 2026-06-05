@@ -29,6 +29,7 @@ enum class VideoCodec(val label: String, val qualityMultiplier: Double) {
 
 @Serializable
 enum class AudioBitrate(val label: String, val kbps: Int) {
+    KEEP_ORIGINAL("Giữ nguyên", -1),
     KBPS_32("32 kbps", 32),
     KBPS_64("64 kbps", 64),
     KBPS_128("128 kbps", 128)

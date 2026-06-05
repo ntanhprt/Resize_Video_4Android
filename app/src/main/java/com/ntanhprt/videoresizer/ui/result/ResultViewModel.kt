@@ -15,7 +15,8 @@ data class FileResult(
     val originalBytes: Long,
     val compressedBytes: Long,
     val isSuccess: Boolean,
-    val error: String = ""
+    val error: String = "",
+    val outputPath: String = ""
 ) {
     val savedBytes: Long get() = (originalBytes - compressedBytes).coerceAtLeast(0)
     val savingPercent: Int get() = if (originalBytes > 0)
@@ -41,13 +42,15 @@ class ResultViewModel(application: Application) : AndroidViewModel(application) 
                 info ?: return@collect
                 if (info.state != WorkInfo.State.SUCCEEDED) return@collect
                 val raw = info.outputData.getString(VideoCompressionWork.KEY_RESULTS_JSON) ?: return@collect
-                val results = raw.split("|").chunked(4).mapNotNull { parts ->
+                val results = raw.split("\n").mapNotNull { line ->
+                    val parts = line.split("|", limit = 5)
                     when (parts.getOrNull(0)) {
                         "ok" -> FileResult(
                             name = parts.getOrElse(1) { "" },
                             originalBytes = parts.getOrElse(2) { "0" }.toLongOrNull() ?: 0L,
                             compressedBytes = parts.getOrElse(3) { "0" }.toLongOrNull() ?: 0L,
-                            isSuccess = true
+                            isSuccess = true,
+                            outputPath = parts.getOrElse(4) { "" }
                         )
                         "fail" -> FileResult(
                             name = parts.getOrElse(1) { "" },

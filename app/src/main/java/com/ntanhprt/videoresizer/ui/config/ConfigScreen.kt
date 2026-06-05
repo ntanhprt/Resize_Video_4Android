@@ -60,7 +60,7 @@ fun ConfigScreen(
         },
         bottomBar = {
             Surface(tonalElevation = 4.dp) {
-                Column(modifier = Modifier.padding(16.dp)) {
+                Column(modifier = Modifier.navigationBarsPadding().padding(16.dp)) {
                     if (state.totalSavedBytes > 0) {
                         Text(
                             "Dự kiến tiết kiệm: ${formatBytes(state.totalSavedBytes)}",

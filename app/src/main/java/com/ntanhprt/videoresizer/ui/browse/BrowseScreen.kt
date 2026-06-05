@@ -24,8 +24,12 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.ui.platform.LocalLifecycleOwner
 import com.ntanhprt.videoresizer.App
 import com.ntanhprt.videoresizer.data.model.VideoFile
 
@@ -56,6 +60,15 @@ fun BrowseScreen(
 
     LaunchedEffect(Unit) { permLauncher.launch(permission) }
 
+    val lifecycleOwner = LocalLifecycleOwner.current
+    DisposableEffect(lifecycleOwner) {
+        val observer = LifecycleEventObserver { _, event ->
+            if (event == Lifecycle.Event.ON_RESUME) vm.refresh()
+        }
+        lifecycleOwner.lifecycle.addObserver(observer)
+        onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
+    }
+
     var totalHeightPx by remember { mutableIntStateOf(1) }
     var splitRatio by remember { mutableFloatStateOf(0.5f) }
 
@@ -66,7 +79,7 @@ fun BrowseScreen(
     ) {
         // ── Top: Video Preview ──
         val topHeightDp = with(density) { (totalHeightPx * splitRatio).toDp() }
-        Box(modifier = Modifier.fillMaxWidth().height(topHeightDp)) {
+        Box(modifier = Modifier.fillMaxWidth().height(topHeightDp).statusBarsPadding()) {
             VideoPlayerSection(uri = state.previewUri, modifier = Modifier.fillMaxSize())
             if (state.previewUri == null) {
                 Text(
@@ -145,6 +158,7 @@ fun BrowseScreen(
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
+                    .navigationBarsPadding()
                     .padding(horizontal = 16.dp, vertical = 10.dp),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
@@ -175,7 +189,7 @@ fun VideoListItem(
     onOpenExternal: () -> Unit
 ) {
     val bgColor = if (isPreviewActive)
-        MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.25f)
+        MaterialTheme.colorScheme.surfaceVariant
     else MaterialTheme.colorScheme.surface
 
     Surface(color = bgColor, modifier = Modifier.fillMaxWidth()) {

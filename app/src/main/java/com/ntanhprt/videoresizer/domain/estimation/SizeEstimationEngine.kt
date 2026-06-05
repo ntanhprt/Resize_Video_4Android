@@ -15,7 +15,7 @@ class SizeEstimationEngine {
         val durationSec = durationMs / 1000.0
         val videoBitrateKbps = config.targetResolution.videoBitrateKbps *
                 config.videoCodec.qualityMultiplier
-        val audioBitrateKbps = config.audioBitrate.kbps.toDouble()
+        val audioBitrateKbps = if (config.audioBitrate.kbps < 0) 128.0 else config.audioBitrate.kbps.toDouble()
         val totalBitrateKbps = videoBitrateKbps + audioBitrateKbps
 
         return (totalBitrateKbps * 1000.0 * durationSec / 8.0).toLong()

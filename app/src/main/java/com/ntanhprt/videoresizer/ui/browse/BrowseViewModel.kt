@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ntanhprt.videoresizer.data.model.VideoFile
 import com.ntanhprt.videoresizer.data.repository.VideoRepository
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
@@ -22,8 +23,15 @@ class BrowseViewModel(private val repository: VideoRepository) : ViewModel() {
     private val _uiState = MutableStateFlow(BrowseUiState())
     val uiState: StateFlow<BrowseUiState> = _uiState.asStateFlow()
 
+    private var loadJob: Job? = null
+
     fun loadVideos() {
-        viewModelScope.launch {
+        refresh()
+    }
+
+    fun refresh() {
+        loadJob?.cancel()
+        loadJob = viewModelScope.launch {
             _uiState.update { it.copy(isLoading = true) }
             repository.getVideos().collect { videos ->
                 _uiState.update { it.copy(videos = videos, isLoading = false) }

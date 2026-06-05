@@ -45,10 +45,12 @@ class ProgressViewModel(application: Application) : AndroidViewModel(application
                         _uiState.update { state ->
                             val list = state.fileProgresses.toMutableList()
                             repeat((fileIndex + 1) - list.size) { list.add(FileProgress("", 0)) }
-                            // mark previous files as done
                             if (fileIndex > 0 && list.size > fileIndex - 1) {
                                 list[fileIndex - 1] = list[fileIndex - 1].copy(isDone = true)
                             }
+                            val current = list.getOrNull(fileIndex)
+                            // Only update if something actually changed
+                            if (current?.name == fileName && current.percent == percent) return@update state
                             list[fileIndex] = FileProgress(fileName, percent)
                             state.copy(fileProgresses = list, currentFileIndex = fileIndex)
                         }

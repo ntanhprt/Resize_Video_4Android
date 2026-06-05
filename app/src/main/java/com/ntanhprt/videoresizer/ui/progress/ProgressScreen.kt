@@ -7,6 +7,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -27,7 +28,7 @@ fun ProgressScreen(
         topBar = { TopAppBar(title = { Text("Đang nén video") }) }
     ) { padding ->
         Column(
-            modifier = Modifier.padding(padding).fillMaxSize().padding(16.dp),
+            modifier = Modifier.padding(padding).fillMaxSize().padding(16.dp).navigationBarsPadding(),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             if (state.fileProgresses.isEmpty()) {
@@ -40,7 +41,7 @@ fun ProgressScreen(
                 modifier = Modifier.weight(1f),
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                itemsIndexed(state.fileProgresses) { index, fp ->
+                itemsIndexed(state.fileProgresses, key = { index, _ -> index }) { index, fp ->
                     FileProgressCard(
                         fileProgress = fp,
                         isActive = index == state.currentFileIndex && !state.isFinished,
@@ -83,6 +84,8 @@ fun FileProgressCard(fileProgress: FileProgress, isActive: Boolean, isDone: Bool
                         else -> "Chờ..."
                     },
                     style = MaterialTheme.typography.labelMedium,
+                    modifier = Modifier.widthIn(min = 52.dp),
+                    textAlign = TextAlign.End,
                     color = when {
                         isDone -> MaterialTheme.colorScheme.tertiary
                         isActive -> MaterialTheme.colorScheme.primary

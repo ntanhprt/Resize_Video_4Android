@@ -68,15 +68,18 @@ class VideoCompressionWork(
                 ))
             }
 
-            if (result is CompressionResult.Success && config.outputMode == OutputMode.OVERWRITE) {
+            val finalPath = if (result is CompressionResult.Success && config.outputMode == OutputMode.OVERWRITE) {
                 File(video.path).delete()
                 File(outputPath).renameTo(File(video.path))
+                video.path
+            } else {
+                outputPath
             }
 
-            results.add(serializeResult(result))
+            results.add(serializeResult(result, if (result is CompressionResult.Success) finalPath else ""))
         }
 
-        Result.success(workDataOf(KEY_RESULTS_JSON to results.joinToString("|")))
+        Result.success(workDataOf(KEY_RESULTS_JSON to results.joinToString("\n")))
     }
 
     private fun resolveOutputPath(
@@ -95,9 +98,9 @@ class VideoCompressionWork(
         }
     }
 
-    private fun serializeResult(result: CompressionResult): String = when (result) {
+    private fun serializeResult(result: CompressionResult, finalOutputPath: String): String = when (result) {
         is CompressionResult.Success ->
-            "ok|${result.inputFile.name}|${result.originalSizeBytes}|${result.compressedSizeBytes}"
+            "ok|${result.inputFile.name}|${result.originalSizeBytes}|${result.compressedSizeBytes}|$finalOutputPath"
         is CompressionResult.Failure ->
             "fail|${result.inputFile.name}|${result.error}"
     }
