@@ -22,7 +22,7 @@ import com.ntanhprt.videoresizer.App
 import com.ntanhprt.videoresizer.domain.model.*
 import com.ntanhprt.videoresizer.work.VideoCompressionWork
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
 fun ConfigScreen(
     selectedVideoIds: String,
