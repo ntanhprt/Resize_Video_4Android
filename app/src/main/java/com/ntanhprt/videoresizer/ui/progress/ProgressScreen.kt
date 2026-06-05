@@ -1,6 +1,7 @@
 package com.ntanhprt.videoresizer.ui.progress
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.*
@@ -25,10 +26,11 @@ fun ProgressScreen(
     LaunchedEffect(state.isFinished) { if (state.isFinished) onDone() }
 
     Scaffold(
+        contentWindowInsets = WindowInsets(0),
         topBar = { TopAppBar(title = { Text("Đang nén video") }) }
     ) { padding ->
         Column(
-            modifier = Modifier.padding(padding).fillMaxSize().padding(16.dp).navigationBarsPadding(),
+            modifier = Modifier.padding(padding).fillMaxSize().navigationBarsPadding().padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             if (state.fileProgresses.isEmpty()) {

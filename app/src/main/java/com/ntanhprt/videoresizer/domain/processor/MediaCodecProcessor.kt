@@ -154,8 +154,12 @@ class MediaCodecProcessor(private val context: Context) : VideoProcessor {
             val encOutIdx = encoder.dequeueOutputBuffer(bufferInfo, timeoutUs)
             when {
                 encOutIdx == MediaCodec.INFO_OUTPUT_FORMAT_CHANGED -> {
-                    muxerVideoTrack = muxer.addTrack(encoder.outputFormat)
-                    if (!muxerStarted) { muxer.start(); muxerStarted = true }
+                    // Can fire multiple times — only start muxer once
+                    if (!muxerStarted) {
+                        muxerVideoTrack = muxer.addTrack(encoder.outputFormat)
+                        muxer.start()
+                        muxerStarted = true
+                    }
                 }
                 encOutIdx >= 0 -> {
                     if (bufferInfo.flags and MediaCodec.BUFFER_FLAG_CODEC_CONFIG == 0 && muxerStarted) {

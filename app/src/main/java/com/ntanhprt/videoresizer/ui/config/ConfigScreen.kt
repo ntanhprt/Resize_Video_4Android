@@ -17,6 +17,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.work.*
 import com.ntanhprt.videoresizer.App
 import com.ntanhprt.videoresizer.domain.model.*
@@ -48,6 +49,7 @@ fun ConfigScreen(
     }
 
     Scaffold(
+        contentWindowInsets = WindowInsets(0),
         topBar = {
             TopAppBar(
                 title = { Text("Cấu hình nén") },

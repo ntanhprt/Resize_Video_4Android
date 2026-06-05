@@ -75,11 +75,12 @@ fun BrowseScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .systemBarsPadding()
             .onSizeChanged { totalHeightPx = it.height }
     ) {
         // ── Top: Video Preview ──
         val topHeightDp = with(density) { (totalHeightPx * splitRatio).toDp() }
-        Box(modifier = Modifier.fillMaxWidth().height(topHeightDp).statusBarsPadding()) {
+        Box(modifier = Modifier.fillMaxWidth().height(topHeightDp)) {
             VideoPlayerSection(uri = state.previewUri, modifier = Modifier.fillMaxSize())
             if (state.previewUri == null) {
                 Text(
@@ -158,7 +159,6 @@ fun BrowseScreen(
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .navigationBarsPadding()
                     .padding(horizontal = 16.dp, vertical = 10.dp),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
