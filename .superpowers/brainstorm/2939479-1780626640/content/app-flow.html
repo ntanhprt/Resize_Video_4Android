@@ -1,0 +1,162 @@
+<h2>Luồng màn hình — Video Resizer App</h2>
+<p class="subtitle">4 màn chính, điều hướng tuyến tính. Chọn màn nào muốn xem chi tiết hơn.</p>
+
+<div class="options" data-multiselect>
+  <div class="option" data-choice="screen1" onclick="toggleSelect(this)">
+    <div class="letter">1</div>
+    <div class="content">
+      <h3>Màn duyệt & chọn video</h3>
+      <div class="mockup" style="margin-top:10px">
+        <div class="mockup-header">📱 Danh sách Video</div>
+        <div class="mockup-body" style="padding:0">
+          <div style="background:#1e1e2e;color:#cdd6f4;padding:10px;font-family:monospace;font-size:12px">
+            <div style="background:#313244;padding:8px;margin-bottom:6px;border-radius:6px;display:flex;align-items:center;gap:8px">
+              <span style="color:#89b4fa">☑</span>
+              <div>
+                <div style="font-weight:bold">VID_20240501.mp4</div>
+                <div style="color:#a6adc8;font-size:11px">4.2 GB • 4K • H.264 • 00:45:12</div>
+              </div>
+            </div>
+            <div style="background:#313244;padding:8px;margin-bottom:6px;border-radius:6px;display:flex;align-items:center;gap:8px">
+              <span style="color:#89b4fa">☑</span>
+              <div>
+                <div style="font-weight:bold">vacation_clip.mp4</div>
+                <div style="color:#a6adc8;font-size:11px">1.8 GB • 1080p • H.264 • 00:22:05</div>
+              </div>
+            </div>
+            <div style="background:#313244;padding:8px;margin-bottom:6px;border-radius:6px;display:flex;align-items:center;gap:8px">
+              <span style="color:#6c7086">☐</span>
+              <div>
+                <div style="font-weight:bold">screen_record.mp4</div>
+                <div style="color:#a6adc8;font-size:11px">850 MB • 1080p • H.264 • 00:10:30</div>
+              </div>
+            </div>
+            <div style="background:#313244;padding:8px;border-radius:6px;display:flex;align-items:center;gap:8px">
+              <span style="color:#6c7086">☐</span>
+              <div>
+                <div style="font-weight:bold">WhatsApp_Video.mp4</div>
+                <div style="color:#a6adc8;font-size:11px">320 MB • 720p • H.264 • 00:05:20</div>
+              </div>
+            </div>
+          </div>
+          <div style="background:#181825;padding:8px;text-align:center;color:#cba6f7;font-size:12px;border-top:1px solid #313244">
+            Đã chọn 2 file · Tổng: 6.0 GB → <strong>Cấu hình nén ›</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="screen2" onclick="toggleSelect(this)">
+    <div class="letter">2</div>
+    <div class="content">
+      <h3>Màn cấu hình nén</h3>
+      <div class="mockup" style="margin-top:10px">
+        <div class="mockup-header">⚙️ Cấu hình nén</div>
+        <div class="mockup-body" style="background:#1e1e2e;color:#cdd6f4;padding:10px;font-family:monospace;font-size:12px">
+          <div style="margin-bottom:8px">
+            <div style="color:#a6adc8;font-size:10px;text-transform:uppercase;letter-spacing:1px">Độ phân giải</div>
+            <div style="display:flex;gap:6px;margin-top:4px;flex-wrap:wrap">
+              <span style="background:#313244;padding:4px 8px;border-radius:12px;border:1px solid #cba6f7;color:#cba6f7">720p</span>
+              <span style="background:#313244;padding:4px 8px;border-radius:12px">1080p</span>
+              <span style="background:#313244;padding:4px 8px;border-radius:12px">480p</span>
+              <span style="background:#313244;padding:4px 8px;border-radius:12px">360p</span>
+              <span style="background:#313244;padding:4px 8px;border-radius:12px">Giữ nguyên</span>
+            </div>
+          </div>
+          <div style="margin-bottom:8px">
+            <div style="color:#a6adc8;font-size:10px;text-transform:uppercase;letter-spacing:1px">Codec video</div>
+            <div style="display:flex;gap:6px;margin-top:4px">
+              <span style="background:#313244;padding:4px 8px;border-radius:12px;border:1px solid #cba6f7;color:#cba6f7">H.265 (HEVC)</span>
+              <span style="background:#313244;padding:4px 8px;border-radius:12px">H.264</span>
+            </div>
+          </div>
+          <div style="margin-bottom:8px">
+            <div style="color:#a6adc8;font-size:10px;text-transform:uppercase;letter-spacing:1px">Bitrate audio</div>
+            <div style="display:flex;gap:6px;margin-top:4px">
+              <span style="background:#313244;padding:4px 8px;border-radius:12px">128 kbps</span>
+              <span style="background:#313244;padding:4px 8px;border-radius:12px;border:1px solid #cba6f7;color:#cba6f7">64 kbps</span>
+              <span style="background:#313244;padding:4px 8px;border-radius:12px">32 kbps</span>
+            </div>
+          </div>
+          <div style="margin-bottom:8px">
+            <div style="color:#a6adc8;font-size:10px;text-transform:uppercase;letter-spacing:1px">Lưu file</div>
+            <div style="display:flex;gap:6px;margin-top:4px">
+              <span style="background:#313244;padding:4px 8px;border-radius:12px;border:1px solid #f38ba8;color:#f38ba8">Ghi đè gốc</span>
+              <span style="background:#313244;padding:4px 8px;border-radius:12px">Thư mục mới</span>
+            </div>
+          </div>
+          <div style="background:#313244;border-radius:8px;padding:8px;margin-top:8px">
+            <div style="color:#a6adc8;font-size:10px;margin-bottom:4px">📊 ƯỚC TÍNH</div>
+            <div>VID_20240501.mp4: <span style="color:#f38ba8">4.2 GB</span> → <span style="color:#a6e3a1">~1.1 GB</span></div>
+            <div>vacation_clip.mp4: <span style="color:#f38ba8">1.8 GB</span> → <span style="color:#a6e3a1">~480 MB</span></div>
+            <div style="border-top:1px solid #45475a;margin-top:6px;padding-top:6px;color:#cba6f7;font-weight:bold">
+              Tiết kiệm: ~4.4 GB
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="screen3" onclick="toggleSelect(this)">
+    <div class="letter">3</div>
+    <div class="content">
+      <h3>Màn xử lý (Progress)</h3>
+      <div class="mockup" style="margin-top:10px">
+        <div class="mockup-header">⚡ Đang xử lý</div>
+        <div class="mockup-body" style="background:#1e1e2e;color:#cdd6f4;padding:10px;font-family:monospace;font-size:12px">
+          <div style="text-align:center;margin-bottom:10px;color:#a6adc8">File 1/2 · 00:02:15 còn lại</div>
+          <div style="margin-bottom:10px">
+            <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+              <span>VID_20240501.mp4</span>
+              <span style="color:#a6e3a1">67%</span>
+            </div>
+            <div style="background:#313244;border-radius:4px;height:8px">
+              <div style="background:linear-gradient(90deg,#89b4fa,#cba6f7);width:67%;height:100%;border-radius:4px"></div>
+            </div>
+            <div style="color:#a6adc8;font-size:11px;margin-top:2px">4.2 GB → đang encode... (~1.1 GB dự kiến)</div>
+          </div>
+          <div style="opacity:0.5">
+            <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+              <span>vacation_clip.mp4</span>
+              <span>Chờ...</span>
+            </div>
+            <div style="background:#313244;border-radius:4px;height:8px"></div>
+          </div>
+          <div style="margin-top:12px;text-align:center">
+            <span style="background:#f38ba8;color:#1e1e2e;padding:6px 16px;border-radius:20px;font-size:12px;cursor:pointer">Dừng lại</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="screen4" onclick="toggleSelect(this)">
+    <div class="letter">4</div>
+    <div class="content">
+      <h3>Màn kết quả</h3>
+      <div class="mockup" style="margin-top:10px">
+        <div class="mockup-header">✅ Hoàn thành</div>
+        <div class="mockup-body" style="background:#1e1e2e;color:#cdd6f4;padding:10px;font-family:monospace;font-size:12px">
+          <div style="text-align:center;color:#a6e3a1;font-size:16px;margin-bottom:8px">✓ Đã xử lý 2/2 video</div>
+          <div style="background:#313244;padding:8px;border-radius:6px;margin-bottom:6px">
+            <div>VID_20240501.mp4</div>
+            <div style="color:#a6adc8;font-size:11px">4.2 GB <span style="color:#a6e3a1">→ 1.05 GB</span> · Tiết kiệm 3.15 GB (75%)</div>
+          </div>
+          <div style="background:#313244;padding:8px;border-radius:6px;margin-bottom:8px">
+            <div>vacation_clip.mp4</div>
+            <div style="color:#a6adc8;font-size:11px">1.8 GB <span style="color:#a6e3a1">→ 462 MB</span> · Tiết kiệm 1.34 GB (74%)</div>
+          </div>
+          <div style="background:#181825;border-radius:8px;padding:8px;text-align:center">
+            <div style="color:#cba6f7;font-size:14px;font-weight:bold">Tổng tiết kiệm: 4.49 GB 🎉</div>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:10px;justify-content:center">
+            <span style="background:#313244;padding:6px 12px;border-radius:16px;font-size:11px;cursor:pointer">Xử lý thêm</span>
+            <span style="background:#cba6f7;color:#1e1e2e;padding:6px 12px;border-radius:16px;font-size:11px;cursor:pointer">Xong</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

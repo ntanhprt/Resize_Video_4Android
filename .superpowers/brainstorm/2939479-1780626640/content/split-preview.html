@@ -1,0 +1,114 @@
+<h2>Layout chia đôi màn hình</h2>
+<p class="subtitle">Nửa trên xem trước · Nửa dưới danh sách · Vuốt lên/xuống để điều chỉnh tỉ lệ</p>
+
+<div class="mockup">
+  <div class="mockup-header">📱 Video Resizer — Portrait mode</div>
+  <div class="mockup-body" style="padding:0;background:#0f0f17;overflow:hidden;border-radius:0 0 8px 8px">
+
+    <!-- TOP HALF: Video Preview -->
+    <div style="background:#000;position:relative;height:220px;display:flex;align-items:center;justify-content:center;border-bottom:2px solid #313244">
+      <!-- Video placeholder -->
+      <div style="text-align:center;color:#6c7086">
+        <div style="font-size:40px;margin-bottom:6px">▶</div>
+        <div style="font-size:12px">VID_20240501.mp4</div>
+        <div style="font-size:10px;color:#45475a;margin-top:2px">4K · 00:45:12 · 4.2 GB</div>
+      </div>
+
+      <!-- Top-right: Expand button -->
+      <div style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.6);border-radius:6px;padding:4px 8px;color:#cdd6f4;font-size:11px;cursor:pointer;border:1px solid #313244">
+        ⛶ Toàn màn hình
+      </div>
+
+      <!-- Bottom: scrub bar -->
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:6px 10px;background:linear-gradient(transparent,rgba(0,0,0,0.8))">
+        <div style="display:flex;align-items:center;gap:6px">
+          <span style="color:#cdd6f4;font-size:10px">00:12</span>
+          <div style="flex:1;background:#45475a;border-radius:2px;height:3px;position:relative">
+            <div style="background:#cba6f7;width:27%;height:100%;border-radius:2px"></div>
+            <div style="position:absolute;top:-3px;left:27%;width:9px;height:9px;background:#cba6f7;border-radius:50%"></div>
+          </div>
+          <span style="color:#cdd6f4;font-size:10px">00:45</span>
+        </div>
+      </div>
+
+      <!-- Drag handle hint -->
+      <div style="position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);background:#45475a;border-radius:2px;width:40px;height:4px;cursor:ns-resize"></div>
+    </div>
+
+    <!-- DRAG HINT label -->
+    <div style="text-align:center;color:#6c7086;font-size:10px;padding:6px;background:#0f0f17">
+      ↕ Vuốt để thay đổi tỉ lệ
+    </div>
+
+    <!-- BOTTOM HALF: Video List -->
+    <div style="background:#1e1e2e;padding:8px;max-height:300px;overflow:auto">
+
+      <!-- Selected item (highlighted) -->
+      <div style="background:#2a2a3d;padding:8px;border-radius:6px;margin-bottom:6px;border-left:3px solid #cba6f7;display:flex;align-items:center;gap:8px">
+        <input type="checkbox" checked style="accent-color:#cba6f7;width:16px;height:16px;flex-shrink:0">
+        <div style="flex:1;min-width:0">
+          <div style="font-weight:bold;font-size:12px;color:#cdd6f4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">VID_20240501.mp4</div>
+          <div style="color:#a6adc8;font-size:10px">4.2 GB · 4K · H.264 · 00:45:12</div>
+        </div>
+        <div style="background:#cba6f7;color:#1e1e2e;border-radius:4px;padding:2px 6px;font-size:10px;flex-shrink:0">Đang xem</div>
+      </div>
+
+      <!-- Normal items -->
+      <div style="background:#313244;padding:8px;border-radius:6px;margin-bottom:6px;display:flex;align-items:center;gap:8px">
+        <input type="checkbox" style="accent-color:#cba6f7;width:16px;height:16px;flex-shrink:0">
+        <div style="flex:1;min-width:0">
+          <div style="font-weight:bold;font-size:12px;color:#cdd6f4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">vacation_clip.mp4</div>
+          <div style="color:#a6adc8;font-size:10px">1.8 GB · 1080p · H.264 · 00:22:05</div>
+        </div>
+      </div>
+
+      <div style="background:#313244;padding:8px;border-radius:6px;margin-bottom:6px;display:flex;align-items:center;gap:8px">
+        <input type="checkbox" style="accent-color:#cba6f7;width:16px;height:16px;flex-shrink:0">
+        <div style="flex:1;min-width:0">
+          <div style="font-weight:bold;font-size:12px;color:#cdd6f4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">screen_record_long_name.mp4</div>
+          <div style="color:#a6adc8;font-size:10px">850 MB · 1080p · H.264 · 00:10:30</div>
+        </div>
+      </div>
+
+      <div style="background:#313244;padding:8px;border-radius:6px;margin-bottom:6px;display:flex;align-items:center;gap:8px">
+        <input type="checkbox" style="accent-color:#cba6f7;width:16px;height:16px;flex-shrink:0">
+        <div style="flex:1;min-width:0">
+          <div style="font-weight:bold;font-size:12px;color:#cdd6f4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">WhatsApp_Video_2024.mp4</div>
+          <div style="color:#a6adc8;font-size:10px">320 MB · 720p · H.264 · 00:05:20</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div style="background:#181825;padding:10px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid #313244">
+      <div style="color:#a6adc8;font-size:11px">Đã chọn: <span style="color:#cba6f7;font-weight:bold">0 file</span></div>
+      <div style="background:#6c7086;color:#1e1e2e;padding:6px 16px;border-radius:20px;font-size:12px;opacity:0.5">Cấu hình nén ›</div>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:16px;background:#1e1e2e;border-radius:8px;padding:12px;color:#cdd6f4;font-size:12px">
+  <div style="color:#cba6f7;font-weight:bold;margin-bottom:8px">Gestures & interactions</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+    <div style="background:#313244;padding:8px;border-radius:6px">
+      <div style="color:#89b4fa">👆 Tap item</div>
+      <div style="color:#a6adc8;font-size:11px;margin-top:2px">Preview ngay trong nửa trên</div>
+    </div>
+    <div style="background:#313244;padding:8px;border-radius:6px">
+      <div style="color:#89b4fa">☑ Tap checkbox</div>
+      <div style="color:#a6adc8;font-size:11px;margin-top:2px">Chọn/bỏ chọn để nén</div>
+    </div>
+    <div style="background:#313244;padding:8px;border-radius:6px">
+      <div style="color:#89b4fa">⛶ Nút mở rộng</div>
+      <div style="color:#a6adc8;font-size:11px;margin-top:2px">Xem fullscreen, thoát bằng back</div>
+    </div>
+    <div style="background:#313244;padding:8px;border-radius:6px">
+      <div style="color:#89b4fa">👇 Giữ lâu item</div>
+      <div style="color:#a6adc8;font-size:11px;margin-top:2px">Mở bằng app video khác</div>
+    </div>
+    <div style="background:#313244;padding:8px;border-radius:6px;grid-column:span 2">
+      <div style="color:#89b4fa">↕ Vuốt divider</div>
+      <div style="color:#a6adc8;font-size:11px;margin-top:2px">Kéo ranh giới lên/xuống để thay đổi tỉ lệ preview/list (min 30% / max 70%)</div>
+    </div>
+  </div>
+</div>
